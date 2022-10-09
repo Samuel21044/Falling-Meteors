@@ -28,7 +28,7 @@ export default class fallingBlocks {
       blockArray.length = [];
       game.newBlock = false;
     }
-  }
+  } 
   draw(ctx) {
     ctx.fillStyle = 'white';
     ctx.fillRect(this.x, this.y, this.w, this.h);
