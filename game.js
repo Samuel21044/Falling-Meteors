@@ -3,6 +3,10 @@ import player from './player.js';
 import keyboard from './keyInput.js';
 import fallingBlocks from './fallingBlocks.js';
 
+//save file
+import { saveScore } from './save.js';
+//So I have it as a function and I have an if statement saying if this is true then save things
+
 export default class Game {
   constructor() {
 
@@ -24,7 +28,6 @@ export default class Game {
   }
 
   update(deltaTime, ctx) {
-
     //blocks
     if(this.newBlock) {
       //give a random output
@@ -40,7 +43,7 @@ export default class Game {
       this.fallingBlocksL[i].draw(ctx);
       this.fallingBlocksL[i].moveDown();
       this.fallingBlocksL[i].update(deltaTime, this.fallingBlocksL, this.Player, this);
-    }
+    } 
 
     //updating other objects n stuff
     this.Player.update(deltaTime); this.Player.draw(ctx);
@@ -53,8 +56,11 @@ export default class Game {
         this.timerScore = 100;
       }
     }
+    //displays the saved score of the player
+    this.highScore = JSON.parse(localStorage.getItem('savedScoreFS'));
   }
   draw(ctx) {
+    //death screen
     if(!this.newBlock) {
       ctx.textAlign = 'center';
       //restart
@@ -68,7 +74,8 @@ export default class Game {
       ctx.fillText('High Score: ' + parseFloat(this.highScore), 375, 320);
 
       if(this.Score > this.highScore) {
-        this.highScore = this.Score;
+        //saves the score of the player
+        saveScore(this);
       }
     }
   }
