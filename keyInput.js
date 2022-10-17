@@ -10,7 +10,7 @@ export default class keyboard {
             player.moveRight();
           break;
         case 13:
-            game.newBlock = true;
+            game.gamestate = 2;
             game.Score = 0;
           break;
       }

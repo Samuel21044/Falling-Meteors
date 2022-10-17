@@ -24,11 +24,11 @@ export default class fallingBlocks {
     }
 
     //collide with player
-    if(collisionDetection(this, player)) {
+    if(collisionDetection(2, 0, 0, this, player)) {
       blockArray.length = [];
-      game.newBlock = false;
+      game.gamestate = 1;
     }
-  } 
+  }
   draw(ctx) {
     ctx.fillStyle = 'white';
     ctx.fillRect(this.x, this.y, this.w, this.h);
