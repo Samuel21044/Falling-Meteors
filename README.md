@@ -7,4 +7,4 @@ Feel free to change, programm, and make my game better for your own purposes.
 
 Thank you for visiting my game and I hope you like it!
 
-Game Tab here- https://js-qebvxp.stackblitz.io/
+Game Tab here- https://falling-meteors.stackblitz.io/
